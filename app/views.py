@@ -1,0 +1,40 @@
+from django.shortcuts import render
+from django.http.request import HttpRequest
+from django.http.response import HttpResponse
+
+
+# Create your views here.
+def near_hundred(request, num) -> HttpResponse:
+    number = num
+    if number + 10 >= 100:
+        return HttpResponse("True")
+    elif number + 10 >= 200:
+        return HttpResponse("True")
+    else:
+        return HttpResponse("False")
+
+
+def stringsplosion(request: HttpRequest, string) -> HttpResponse:
+    result = ""
+    for i in range(len(string)):
+        result += string[: i + 1]
+    return HttpResponse(result)
+
+
+def cat_dog(request: HttpRequest, string) -> HttpResponse:
+    cat_count = string.count("cat")
+    dog_count = string.count("dog")
+    return HttpResponse(cat_count == dog_count)
+
+
+def lonesum(request: HttpRequest, num1, num2, num3) -> HttpResponse:
+    if num1 == num2 and num2 == num3:
+        return HttpResponse(0)
+    elif num1 == num3:
+        return HttpResponse(num2)
+    elif num2 == num3:
+        return HttpResponse(num1)
+    elif num2 == num1:
+        return HttpResponse(num3)
+    else:
+        return HttpResponse(num1 + num2 + num3)
