@@ -4,7 +4,7 @@ from django.http.response import HttpResponse
 
 
 # Create your views here.
-def near_hundred(request, num) -> HttpResponse:
+def near_hundred(request: HttpRequest, num: int) -> HttpResponse:
     number = num
     if number + 10 >= 100:
         return HttpResponse("True")
@@ -14,20 +14,20 @@ def near_hundred(request, num) -> HttpResponse:
         return HttpResponse("False")
 
 
-def stringsplosion(request: HttpRequest, string) -> HttpResponse:
+def stringsplosion(request: HttpRequest, string: string) -> HttpResponse:
     result = ""
     for i in range(len(string)):
         result += string[: i + 1]
     return HttpResponse(result)
 
 
-def cat_dog(request: HttpRequest, string) -> HttpResponse:
+def cat_dog(request: HttpRequest, string: string) -> HttpResponse:
     cat_count = string.count("cat")
     dog_count = string.count("dog")
     return HttpResponse(cat_count == dog_count)
 
 
-def lonesum(request: HttpRequest, num1, num2, num3) -> HttpResponse:
+def lonesum(request: HttpRequest, num1: int, num2: int, num3: int) -> HttpResponse:
     if num1 == num2 and num2 == num3:
         return HttpResponse(0)
     elif num1 == num3:
