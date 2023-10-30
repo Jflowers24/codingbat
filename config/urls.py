@@ -22,6 +22,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("warmup-1/near-hundred/<int:num>/", near_hundred),
     path("warmup-2/string-splosion/<string>/", stringsplosion),
-    path("string-2/<string>/", cat_dog),
-    path("Logic-2/<int:num1>/<int:num2>/<int:num3>/", lonesum),
+    path("string-2/cat-dog/<string>/", cat_dog),
+    path("Logic-2/lone-sum/<int:num1>/<int:num2>/<int:num3>/", lonesum),
 ]
